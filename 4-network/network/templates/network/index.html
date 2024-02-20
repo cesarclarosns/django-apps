@@ -1,0 +1,31 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<!--Profile-->
+<div id="profile-view" class="container my-2"></div>
+<!--Forms-->
+<div id="compose-post-view" class="container my-2 text-center">
+    <form id="compose-form">
+        <div class="form-group">
+            <textarea id="compose-content" class="form-control" placeholder="What's on your mind?"></textarea>
+        </div>
+        <input id="btn-compose-form" type="submit" class="btn btn-dark" value="Post">
+    </form>
+    <hr>
+</div>
+<div id="edit-post-view" class="container my-2 text-center">
+    <form id="edit-form">
+        <div class="form-group">
+            <textarea id="edit-content" class="form-control"></textarea>
+        </div>
+        <input id="btn-edit-form" type="submit" class="btn btn-dark" value="Save">
+    </form>
+    <hr>
+</div>
+<!--Posts-->
+<div id="paginator" class="container my-2"></div>
+<div id="posts-view" class="container my-2"></div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+
+{% block title %}
+{{ title|safe }}
+{% endblock %}
+
+{% block body %}
+<div class="container text-center">
+    {% load static %}
+    <img src="{% static 'encyclopedia/src/pnf.gif' %}" />
+    <h1>Page not found</h1>
+</div>
+{% endblock %}

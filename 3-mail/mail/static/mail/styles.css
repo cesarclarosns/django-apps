@@ -1,0 +1,12 @@
+* {
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+}
+
+textarea {
+  min-height: 400px;
+}
+
+a {
+  text-decoration: none;
+}

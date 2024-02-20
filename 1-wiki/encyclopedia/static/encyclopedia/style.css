@@ -1,0 +1,9 @@
+* {
+  font-family: "Spline Sans", sans-serif;
+  /* font-weight: 400; */
+}
+
+.nav-link {
+  font-size: medium;
+  font-weight: 400;
+}

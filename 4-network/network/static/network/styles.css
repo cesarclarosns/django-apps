@@ -1,0 +1,35 @@
+* :not(i) {
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline !important;
+  cursor: pointer !important;
+}
+
+#username {
+  font-weight: 700;
+}
+
+.a-edit {
+  color: orangered !important;
+}
+
+.username {
+  font-weight: 700;
+}
+
+#posts-view {
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+.page-link {
+  text-decoration: none !important;
+}

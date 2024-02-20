@@ -1,0 +1,3 @@
+#Chess
+
+Chess is a board game played between two players. It is sometimes called Western chess, or international chess to distinguish it from related games such as xiangqi. The current form of the game emerged in Southern Europe during the second half of the 15th century after evolving from similar, much older games of Indian and Persian origin. Today, chess is one of the world's most popular games, played by millions of people worldwide.

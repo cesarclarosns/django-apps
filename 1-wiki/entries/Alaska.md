@@ -1,0 +1,3 @@
+# Alaska
+
+Alaska is a U.S. state at the northwest extremity of North America. A semi-exclave of the U.S., it borders the Canadian province of British Columbia and the territory of Yukon to the east and has a maritime border with Russia's Chukotka Autonomous Okrug to the west, just across the Bering Strait. To the north are the Chukchi and Beaufort seas of the Arctic Ocean, while the Pacific Ocean lies to the south and southwest.

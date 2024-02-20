@@ -1,0 +1,160 @@
+html,
+body {
+  min-width: 400px;
+  min-height: 100%;
+  padding-bottom: 80px;
+}
+
+.btn {
+  background-color: #f8f9fa;
+  font-size: 14px;
+}
+
+.btn:hover {
+  border: 1px solid #d2d4d6;
+  font-size: 14px;
+}
+
+.camera-icon {
+  transform: scale(0.5);
+  margin-top: -9px !important;
+  margin-right: -11px !important;
+}
+
+.footer-1 {
+  border-bottom: 1px solid #d2d4d6;
+}
+
+@media (max-width: 850px) {
+  .footer {
+    min-width: 400px;
+  }
+
+  .footer-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .subf-1 {
+    display: flex !important;
+    justify-content: center !important;
+  }
+}
+
+.info {
+  font-size: 12.5px;
+  color: black;
+}
+
+.info-lan {
+  font-size: 12.5px;
+  color: rgb(1, 1, 173);
+  text-decoration: none;
+}
+
+.info-lan:hover {
+  font-size: 12.5px;
+  color: rgb(1, 1, 173);
+  text-decoration: underline;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 92px;
+  max-height: 290px;
+  height: calc(100% - 560px);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.logo-inner-container {
+  max-height: 92px;
+  position: relative;
+  height: 100%;
+  margin-top: auto;
+}
+
+.logo-text {
+  position: absolute;
+  left: 215px;
+  bottom: 0;
+  white-space: nowrap;
+  color: #4285f4;
+}
+
+.nav-link {
+  color: #70757a;
+  font-size: 14px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+  color: #70757a;
+}
+
+.ref {
+  color: black;
+  font-size: 12.5px;
+}
+
+.ref:hover {
+  color: black;
+  text-decoration: underline;
+  font-size: 12.5px;
+}
+
+.search-1 {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  width: auto;
+}
+
+.input-container {
+  display: flex;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  height: 44px;
+  margin: 0 auto;
+  width: auto;
+  max-width: 584px;
+}
+
+.input-container:hover {
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  border-color: rgba(223, 225, 229, 0);
+}
+
+.input-inner-container {
+  display: flex;
+  flex: 1;
+  padding: 5px 8px 0 14px;
+}
+
+.input-container-img {
+  display: flex;
+  align-items: center;
+  padding-right: 13px;
+  margin-top: 10px;
+}
+
+.input-container-txt {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding-right: 0px;
+  word-wrap: break-word;
+  outline: none;
+  display: flex;
+  flex: 100%;
+  margin-top: -2px;
+  height: 34px;
+  font-size: 16px;
+}

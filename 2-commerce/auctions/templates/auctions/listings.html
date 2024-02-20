@@ -1,0 +1,103 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+{% for error_message in error_messages %}
+<div class="alert alert-danger text-center" role="alert">
+	{{ error_message }}
+</div>
+{% endfor %}
+
+<!--Auction's title-->
+<h2 class="text-center p-2 m-2">{{ listing.title }}</h2>
+<!--Action's options-->
+{% if user.is_authenticated %}
+
+<div class="text-center p-2 m-2">
+	<!--Watchlist (Add or Remove)-->
+	{% if listing in user_watchlist %}
+	<a class="btn btn-outline-dark" href="{% url 'auctions:helper_watchlist' listing.id %}">Remove from Watchlist</a>
+	{% elif listing not in user_watchlist%}
+	<a class="btn btn-outline-dark" href="{% url 'auctions:helper_watchlist' listing.id %}">Add to Watchlist</a>
+	{% endif %}
+	<!--Auction's state (Close or Open)-->
+	{% if listing.state and listing.user == user %}
+	<a class="btn btn-outline-dark" href="{% url 'auctions:helper_auction_state' listing.id %}">Close Auction</a>
+	{% elif not listing.state and listing.user == user %}
+	<a class="btn btn-outline-dark" href="{% url 'auctions:helper_auction_state' listing.id %}">Reopen Auction</a>
+	{% endif %}
+	<!--Display winner-->
+	{% if not listing.state and listing.current_bid.user == user %}
+	<div class="alert alert-success p-2 m-2">You won!</div>
+	{% endif %}
+</div>
+
+{% endif %}
+
+<!--Auction's description-->
+<div class="container d-flex flex-wrap justify-content-center align-content-center">
+	<!--Auction's image-->
+	<div class="m-2">
+		<img id="auction-image" src="{{ listing.image_url }}" />
+	</div>
+	<!--Auction's details-->
+	<div class="text-center" id="auction-details">
+		<!--Auction's title-->
+		<div>
+			<p>{{ listing.description }}</p>
+		</div>
+		<!--Auction's bids-->
+		<div>
+			{% if listing.bids_number == 1 %}
+			<p>Starting bid: {{ listing.starting_bid }}</p>
+			{% else %}
+			<p>Current bid: {{ listing.current_bid }}</p>
+			{% endif %}
+			<p class="text-muted">Published by: {{ listing.user.username }}</p>
+			<p class="text-muted">Publication date: {{ listing.pub_date }}</p>
+		</div>
+		<!--Auction's bid form-->
+		<div>
+			{% if user.is_authenticated%}
+			<form action="{% url 'auctions:listings' listing.id %}" method="post">
+				{% csrf_token %}
+				<div class="m-2">{{ bid_form.amount }}</div>
+				<div class="m-1"><input class="btn btn-outline-dark" type="submit" value="Place Bid" /></div>
+			</form>
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+<!--Comments view-->
+<!--Comment form-->
+<hr>
+<div style="margin: auto;">
+	{% if user.is_authenticated%}
+	<form class="text-center m-3" action="{% url 'auctions:helper_post_comment' listing.id %}" method="post">
+		{% csrf_token %}
+		<div>
+			{{ comment_form }}
+		</div>
+		<div>
+			<input class="btn btn-dark" type="submit" value="Post" />
+		</div>
+	</form>
+	{% endif %}
+
+	<!-- Display comments -->
+	<div class="container">
+		{% for comment in comments %}
+		<div class="card">
+			<div class="card-body">
+				<div><strong>{{ comment.user.username }}</strong></div>
+				<div>{{ comment.comment }}</div>
+				<div class="text-muted">{{ comment.pub_date }}</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<h2 class="text-center p-2 m-2">Active Listings</h2>
+
+<div class="d-flex flex-wrap justify-content-center">
+
+	{% for auction in auctions %}
+	<div class="card m-3" style="width: 19rem;">
+
+		<a href="{% url 'auctions:listings' auction.id %}">
+			<img class="card-img-top" src="{{ auction.image_url }}" width="500px">
+		</a>
+
+		<div class="card-body m-2">
+			<h3>{{ auction.title }}</h3>
+
+			<div class="card-text">
+				<p>{{ auction.description }}</p>
+				{% if auction.bids_number == 1 %}
+				<p>Starting bid: {{ auction.starting_bid }}</p>
+				{% else %}
+				<p>Current bid: {{ auction.current_bid }}</p>
+				{% endif %}
+				<p class="blockquote-footer">Published by: {{ auction.user.username }}</p>
+				<p class="blockquote-footer">{{ auction.pub_date }}</p>
+			</div>
+		</div>
+
+	</div>
+	{% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+
+{% block title %}
+Encyclopedia
+{% endblock %}
+
+{% block body %}
+<h1>Search results:</h1>
+
+<div>
+    {% for entry in entries %}
+    <div>
+        <a href="{% url 'encyclopedia:render_entry' entry %}">{{ entry }}</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

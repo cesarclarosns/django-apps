@@ -1,0 +1,31 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<h2 class="text-center p-2 m-2">Watchlist</h2>
+
+<div class="d-flex flex-wrap justify-content-center">
+    {% for listing in user_watchlist %}
+    <div class="card m-3" style="width: 19rem;">
+        <a href="{% url 'auctions:listings' listing.id %}">
+            <img class="card-img-top" src="{{ listing.image_url }}" width="500px">
+        </a>
+        <div class="card-body m-2">
+            <h3>{{ listing.title }}</h3>
+            <div class="card-text">
+                <p>{{ listing.description }}</p>
+                {% if listing.bids_number == 1 %}
+                <p>Starting bid: {{ listing.starting_bid }}</p>
+                {% else %}
+                <p>Current bid: {{ listing.current_bid }}</p>
+                {% endif %}
+                <p class="blockquote-footer">Published by: {{ listing.user.username }}</p>
+                <p class="blockquote-footer">Publication date: {{ listing.pub_date }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

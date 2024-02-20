@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!-- TODO -->
+<html lang="en">
+  <head>
+    <link
+      rel="icon"
+      href="static/src/google_tab_icon.png"
+      type="image/png"
+      sizes="128x128"
+    />
+    <!--Bootstrap's CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!-- Manual CSS -->
+    <link href="static/styles-images.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Scripts -->
+    <script>
+      $(document).ready(function () {
+        $("#button").click(function () {
+          window.location.replace(
+            "https://google.com/search?q=" +
+              $("#q").val() +
+              "&hl=en&tbm=isch&source=hp&biw=539&bih=693&ei=lLltYaGfN96Er7wP2fWn2AY&ved=0ahUKEwihuYGoyNTzAhVewosBHdn6CWsQ4dUDCAc&uact=5&oq=perro&gs_lcp=CgNpbWcQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgARQu7EUWLi1FGDntxRoAHAAeAGAAc0DiAHRCJIBCTAuMy4xLjAuMZgBAKABAaoBC2d3cy13aXotaW1nsAEA&sclient=img"
+          );
+        });
+      });
+    </script>
+    <title>Google</title>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <ul class="container-fluid justify-content-end nav">
+        <li class="nav-item">
+          <a class="nav-link ref" href="index.html">Google Search</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Search Form -->
+    <div class="container-fluid text-center py-2">
+      <!-- Google logo -->
+      <div class="logo-container">
+        <div class="logo-inner-container">
+          <img class="search-1" src="static/src/google_logo.png" />
+          <span class="logo-text">images</span>
+        </div>
+      </div>
+
+      <!-- Google search form -->
+      <form>
+        <div class="input-container">
+          <div class="input-inner-container">
+            <a href="#">
+              <img class="input-container-img" src="static/src/search_icon.svg"
+            /></a>
+            <input
+              autocomplete="off"
+              autofocus
+              class="input-container-txt"
+              type="text"
+              name="q"
+              id="q"
+            />
+            <a href="#">
+              <img
+                class="input-container-img camera-icon"
+                src="static/src/camera-icon.png"
+            /></a>
+          </div>
+        </div>
+        <div class="container py-4">
+          <input
+            class="btn mx-2 my-2 px-3 py-2"
+            id="button"
+            type="button"
+            value="Image Search"
+          />
+        </div>
+      </form>
+      <p class="info">
+        Google offered in:
+        <a class="info-lan" href="#">Español (Latinoamérica)</a>
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <div class="nav bg-light fixed-bottom footer">
+      <!-- Country -->
+      <div class="container-fluid footer-1">
+        <a href="#" class="nav-link disabled">Mexico</a>
+      </div>
+
+      <!-- Other options -->
+      <div class="container-fluid navbar footer-2">
+        <!-- Options left -->
+        <ul class="justify-content-start nav subf-1">
+          <li class="nav-item">
+            <a href="#" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Advertising</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Business</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">How Search Works</a>
+          </li>
+        </ul>
+
+        <!-- Options right -->
+        <ul class="justify-content-end nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link">Privacy</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Terms</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

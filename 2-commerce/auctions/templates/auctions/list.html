@@ -1,0 +1,44 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<h2 class="text-center m-3">Create Listing</h2>
+
+<form class="text-center my-2" action='{% url 'auctions:list' %}' method='post'>
+    {% csrf_token %}
+    <!--Auction's Title-->
+    <div class="form-group m-1">
+        <div>{{ auction_form.title.errors }}</div>
+        <div><label for="{{ auction_form.title.id_for_label }}"><strong>Title:</strong></label></div>
+        <div>{{ auction_form.title }}</div>
+    </div>
+    <!--Auction's Category-->
+    <div class="form-group m-1">
+        <div>{{ auction_form.categories.errors }}</div>
+        <div><label for="{{ auction_form.categories.id_for_label }}"><strong>Categories:</strong></label></div>
+        <div>{{ auction_form.categories }}</div>
+    </div>
+    <!--Auction's Image-->
+    <div class="form-group m-1">
+        <div>{{ auction_form.image_url.errors }}</div>
+        <div> <label for="{{ auction_form.image_url.id_for_label }}"><strong>Image URL:</strong></label></div>
+        <div>{{ auction_form.image_url }}</div>
+    </div>
+    <!--Auction's Description-->
+    <div class="form-group m-1">
+        <div>{{ auction_form.description.errors }}</div>
+        <div><label for="{{ auction_form.description.id_for_label }}"><strong>Description:</strong></label></div>
+        <div>{{ auction_form.description }}</div>
+    </div>
+    <!--Auction's Bid-->
+    <div class="form-group m-1">
+        <div>{{ bid_form.amount.errors }}</div>
+        <div><label for="{{ bid_form.amount.id_for_label }}"><strong>Starting bid:</strong></label></div>
+        <div>{{ bid_form.amount }}</div>
+
+    </div>
+    <input class="btn btn-dark m-1" type="submit" value="Post">
+</form>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{% block title %}Social Network{% endblock %}</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!--Styling-->
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="{% static 'network/styles.css' %}" rel="stylesheet">
+    <!--Scripts-->
+    <script>
+        var id = parseInt("{{ user.id }}");
+        var username = "{{ user.username }}";
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'network/pagination.min.js' %}"></script>
+    <script src="{% static 'network/network.js' %}"></script>
+</head>
+
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center mb-2">
+        <div class="container d-flex justify-content-center">
+            {% if user.is_authenticated %}
+            <div class="nav-item">
+                <a id="load-user-profile" class="nav-link text-white" href="#">
+                    <span id="username">{{ user.username }}</span>
+                </a>
+            </div>
+            {% endif %}
+            <div class="nav-item">
+                <a id="load-posts" class="nav-link text-white" href="#">All Posts</a>
+            </div>
+            {% if user.is_authenticated %}
+            <div class="nav-item">
+                <a id="load-posts-following" class="nav-link text-white" href="#">Following</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link text-white" href="{% url 'logout' %}">Log Out</a>
+            </div>
+            {% else %}
+            <div class="nav-item">
+                <a class="nav-link text-white" href="{% url 'login' %}">Log In</a>
+            </div>
+            <div class="nav-item">
+                <a class="nav-link text-white" href="{% url 'register' %}">Register</a>
+            </div>
+            {% endif %}
+        </div>
+    </nav>
+    <!-- Content -->
+    {% block body %}
+    {% endblock %}
+
+</body>
+
+</html>

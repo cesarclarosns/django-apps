@@ -1,0 +1,58 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+
+{% block body %}
+
+<div class="text-center">
+    <div>
+        <h3>
+            <svg xmlns="http://www.w3.org/2000/svg" class="mx-2" width="25" height="25" fill="currentColor"
+                class="bi bi-mailbox2" viewBox="0 0 16 16">
+                <path d="M9 8.5h2.793l.853.854A.5.5 0 0 0 13 9.5h1a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.5-.5H9v1z" />
+                <path
+                    d="M12 3H4a4 4 0 0 0-4 4v6a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V7a4 4 0 0 0-4-4zM8 7a3.99 3.99 0 0 0-1.354-3H12a3 3 0 0 1 3 3v6H8V7zm-3.415.157C4.42 7.087 4.218 7 4 7c-.218 0-.42.086-.585.157C3.164 7.264 3 7.334 3 7a1 1 0 0 1 2 0c0 .334-.164.264-.415.157z" />
+            </svg> {{ request.user.email }}
+        </h3>
+    </div>
+    <div>
+        <button class="btn btn-sm btn-outline-primary fs-6" id="inbox">Inbox</button>
+        <button class="btn btn-sm btn-outline-primary fs-6" id="compose">Compose</button>
+        <button class="btn btn-sm btn-outline-primary fs-6" id="sent">Sent</button>
+        <button class="btn btn-sm btn-outline-primary fs-6" id="archived">Archived</button>
+        <a class="btn btn-sm btn-outline-dark fs-6" href="{% url 'logout' %}">Log Out</a>
+    </div>
+</div>
+<hr>
+
+<div class="alert alert-danger text-center" id="status">
+    <div id="error-message">
+    </div>
+</div>
+
+<div id="email-view">
+</div>
+
+<div id="emails-view">
+    <ul class="list-group" id="emails-list">
+    </ul>
+</div>
+
+<div id="compose-view" class="mx-auto" style="width: 50vw; min-width: 450px;">
+    <h3>New Email</h3>
+    <form id="compose-form">
+        <div class="form-group">
+            From: <input disabled class="form-control" value="{{ request.user.email }}">
+        </div>
+        <div class="form-group">
+            To: <input id="compose-recipients" class="form-control">
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="compose-subject" placeholder="Subject">
+        </div>
+        <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
+        <input type="submit" class="btn btn-primary my-3" value="Send" />
+    </form>
+</div>
+
+{% endblock %}

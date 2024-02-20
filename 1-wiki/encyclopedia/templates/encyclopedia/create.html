@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+{% load static %}
+
+{% block title %}
+New Page
+{% endblock %}
+
+{% block body %}
+<div class="flex-column text-center">
+    <h1>New Page</h1>
+    <form action="{% url 'encyclopedia:create' %}" method="post">
+        {% csrf_token %}
+        {{ create.as_p }}
+        <input class="btn btn-outline-dark" type="submit" value="Save">
+    </form>
+</div>
+{% endblock %}

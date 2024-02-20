@@ -1,0 +1,32 @@
+#auction-details {
+  margin: auto;
+}
+
+#auction-image {
+  max-width: 400px;
+  border-radius: 5%;
+}
+
+#comment-form {
+  margin: auto;
+}
+
+#id_categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#id_categories > div {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#id_categories.child:hover {
+  cursor: pointer !important;
+}
+
+* {
+  font-family: "Spline Sans", sans-serif;
+  font-weight: 400;
+}
